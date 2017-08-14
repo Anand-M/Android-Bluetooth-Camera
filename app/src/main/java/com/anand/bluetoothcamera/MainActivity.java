@@ -263,7 +263,7 @@ public class MainActivity extends AppCompatActivity
 
                     break;
                 case Constants.TAKE_PICTURE:
-
+                    captureImage();
                     break;
                 case Constants.MESSAGE_WRITE:
                     mSendButton.setClickable(false);
@@ -335,19 +335,16 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.secure_connect_scan: {
-
                 Intent serverIntent = new Intent(this, DeviceListActivity.class);
                 startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
                 return true;
             }
             case R.id.insecure_connect_scan: {
-
                 Intent serverIntent = new Intent(this, DeviceListActivity.class);
                 startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_INSECURE);
                 return true;
             }
             case R.id.discoverable: {
-
                 ensureDiscoverable();
                 return true;
             }
@@ -390,12 +387,8 @@ public class MainActivity extends AppCompatActivity
                         e.printStackTrace();
                     }
                     image.compressToJpeg(
-                            new Rect(0, 0, image.getWidth(), image.getHeight()), 90,
-                            filecon);
-
+                            new Rect(0, 0, image.getWidth(), image.getHeight()), 90, filecon);
                     Picasso.with(getActivity()).load(file).into(imageview);*/
-
-
 
                     ByteArrayOutputStream out = new ByteArrayOutputStream();
                     YuvImage yuvImage = new YuvImage(data, ImageFormat.NV21, 176, 144, null);
@@ -409,7 +402,6 @@ public class MainActivity extends AppCompatActivity
                 }
             });
             camera.startPreview();
-
         } catch (Exception e) {
             Log.e(TAG, "init_camera: " + e);
             return;

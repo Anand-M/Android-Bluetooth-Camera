@@ -19,7 +19,9 @@ import android.widget.TextView;
 
 import java.util.Set;
 
-
+/**
+ * List all the paired devices
+ */
 public class DeviceListActivity extends Activity {
 
     private static final String TAG = DeviceListActivity.class.getSimpleName();
@@ -75,7 +77,6 @@ public class DeviceListActivity extends Activity {
         this.unregisterReceiver(mReceiver);
     }
 
-    
     private void doDiscovery() {
         Log.d(TAG, "doDiscovery()");
         setProgressBarIndeterminateVisibility(true);
@@ -100,7 +101,6 @@ public class DeviceListActivity extends Activity {
         }
     };
 
-    
     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
